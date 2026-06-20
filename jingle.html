@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASRED 2026 - Create Your Jingle</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #003366 0%, #004080 40%, #002244 100%);
+            min-height: 100vh;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #003366;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .step {
+            background: #f0f8ff;
+            border-left: 4px solid #003366;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .step-number {
+            background: #003366;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        .code-box {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin: 10px 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .copy-btn {
+            background: #ffd700;
+            color: #003366;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .copy-btn:hover {
+            background: #ffed4a;
+        }
+        .suno-link {
+            display: block;
+            text-align: center;
+            background: #003366;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 30px 0;
+        }
+        .suno-link:hover {
+            background: #004080;
+        }
+        .note {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 NASRED 2026 Jingle Creator</h1>
+        <p class="subtitle">Create your conference jingle in 3 minutes — Free!</p>
+
+        <a href="https://suno.com/create" target="_blank" class="suno-link">
+            🚀 OPEN SUNO.AI (Click Here First)
+        </a>
+
+        <div class="step">
+            <span class="step-number">1</span>
+            <strong>Click "Custom Mode" on Suno</strong>
+        </div>
+
+        <div class="step">
+            <span class="step-number">2</span>
+            <strong>Paste these lyrics:</strong>
+            <div class="code-box" id="lyrics">[Verse 1]
+From every corner of Nigeria
+From every corner of the world
+Scholars gather, minds unite
+Solutions for a better tomorrow
+
+[Chorus]
+NASRED Twenty-Twenty-Six!
+Religion! Education! Health!
+Building a better society!
+Where faith and knowledge meet!
+
+[Verse 2]
+July twentieth to twenty-third
+Tai Solarin University
+Ijagun, Ogun State
+The future starts today!
+
+[Chorus]
+NASRED Twenty-Twenty-Six!
+Religion! Education! Health!
+Building a better society!
+Where faith, knowledge, and wellness unite!
+
+[Outro]
+NASRED 2026!
+Be part of the solution!</div>
+            <button class="copy-btn" onclick="copyText('lyrics')">📋 Copy Lyrics</button>
+        </div>
+
+        <div class="step">
+            <span class="step-number">3</span>
+            <strong>Paste this music style:</strong>
+            <div class="code-box" id="style">African inspirational, uplifting gospel choir, kora, talking drum, balafon, professional conference anthem, celebratory, 95 BPM, major key, Nigerian sound</div>
+            <button class="copy-btn" onclick="copyText('style')">📋 Copy Style</button>
+        </div>
+
+        <div class="step">
+            <span class="step-number">4</span>
+            <strong>Title:</strong> NASRED 2026 Conference Jingle
+        </div>
+
+        <div class="step">
+            <span class="step-number">5</span>
+            <strong>Click "Create" — Your jingle will be ready in 2 minutes!</strong>
+        </div>
+
+        <div class="note">
+            <strong>💡 What happens next:</strong>
+            <ul style="margin: 10px 0 0 20px;">
+                <li>Suno creates 2 versions of your jingle</li>
+                <li>Listen to both, pick your favorite</li>
+                <li>Click ⋮ (three dots) → Download → Audio</li>
+                <li>Share the MP3 on WhatsApp, radio, or at the conference!</li>
+            </ul>
+            <p style="margin-top: 10px;"><strong>Free plan:</strong> 50 credits/day = 10 songs per day</p>
+        </div>
+
+        <p style="text-align: center; margin-top: 30px; color: #666;">
+            <strong>NASRED 2026</strong><br>
+            Theme: Religion, Education and Health Challenges in Contemporary Society<br>
+            July 20-23, 2026 | Tai Solarin Federal University of Education, Ijagun
+        </p>
+    </div>
+
+    <script>
+        function copyText(elementId) {
+            const text = document.getElementById(elementId).textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('✅ Copied! Now paste it in Suno.ai');
+            });
+        }
+    </script>
+</body>
+</html>
