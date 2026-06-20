@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="95" fill="#1a3a6c" stroke="#ffd700" stroke-width="3"/>
+  
+  <!-- Outer Ring -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="#ffd700" stroke-width="2" opacity="0.5"/>
+  
+  <!-- Book (Education) -->
+  <path d="M 60 110 L 100 95 L 140 110 L 140 140 L 100 155 L 60 140 Z" fill="#ffffff" stroke="#ffd700" stroke-width="2"/>
+  <line x1="100" y1="95" x2="100" y2="155" stroke="#ffd700" stroke-width="2"/>
+  
+  <!-- Cross (Christianity) -->
+  <path d="M 75 70 L 75 95 M 65 80 L 85 80" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Crescent Moon (Islam) -->
+  <circle cx="130" cy="75" r="12" fill="none" stroke="#ffffff" stroke-width="3"/>
+  <circle cx="135" cy="75" r="10" fill="#1a3a6c"/>
+  
+  <!-- Star (Excellence) -->
+  <polygon points="100,30 105,50 125,50 110,65 115,85 100,72 85,85 90,65 75,50 95,50" fill="#ffd700"/>
+  
+  <!-- Text -->
+  <text x="100" y="185" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffd700" text-anchor="middle">NASRED</text>
+  <text x="100" y="198" font-family="Arial, sans-serif" font-size="8" fill="#ffffff" text-anchor="middle">2026</text>
+</svg>

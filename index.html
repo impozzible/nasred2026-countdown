@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASRED 2026 Conference Countdown</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a1628 0%, #1a3a6c 50%, #0d2137 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .logo-section {
+            margin-bottom: 30px;
+        }
+
+        .logo-section img {
+            max-width: 200px;
+            height: auto;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .theme {
+            color: #ffd700;
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            font-style: italic;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .countdown-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .countdown-title {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .countdown-display {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .time-unit {
+            background: linear-gradient(145deg, #1e3a5f, #0f2845);
+            padding: 25px;
+            border-radius: 15px;
+            min-width: 120px;
+            border: 2px solid #ffd700;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .time-value {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ffd700;
+            display: block;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .time-label {
+            color: #ffffff;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .days-highlight {
+            background: linear-gradient(145deg, #ffd700, #ff8c00);
+            transform: scale(1.1);
+        }
+
+        .days-highlight .time-value {
+            color: #0a1628;
+            text-shadow: none;
+        }
+
+        .message {
+            color: #ffffff;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 215, 0, 0.2);
+            border-radius: 10px;
+            border: 2px solid #ffd700;
+        }
+
+        .event-details {
+            margin-top: 30px;
+            color: #ffffff;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .event-details strong {
+            color: #ffd700;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .theme { font-size: 1rem; }
+            .time-unit { min-width: 80px; padding: 15px; }
+            .time-value { font-size: 2rem; }
+            .time-label { font-size: 0.7rem; }
+            .message { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <div class="logo-section">
+            <img src="nasred-logo.png" alt="NASRED 2026 Logo">
+        </div>
+        
+        <h1>NASRED 2026 International Conference</h1>
+        <p class="theme">"Religion, Education and Health Challenges in Contemporary Society"</p>
+        
+        <div class="countdown-box">
+            <h2 class="countdown-title">Countdown to Conference</h2>
+            
+            <div class="countdown-display">
+                <div class="time-unit days-highlight">
+                    <span class="time-value" id="days">0</span>
+                    <span class="time-label">Days</span>
+                </div>
+                <div class="time-unit">
+                    <span class="time-value" id="hours">0</span>
+                    <span class="time-label">Hours</span>
+                </div>
+                <div class="time-unit">
+                    <span class="time-value" id="minutes">0</span>
+                    <span class="time-label">Minutes</span>
+                </div>
+                <div class="time-unit">
+                    <span class="time-value" id="seconds">0</span>
+                    <span class="time-label">Seconds</span>
+                </div>
+            </div>
+            
+            <div class="message" id="countdown-message">
+                Loading countdown...
+            </div>
+        </div>
+        
+        <div class="event-details">
+            <p><strong>📅 Date:</strong> 20th – 23rd July 2026</p>
+            <p><strong>📍 Venue:</strong> Tai Solarin Federal University of Education, Ijagun, Ogun State</p>
+            <p><strong>🎓 Theme:</strong> Religion, Education and Health Challenges in Contemporary Society</p>
+        </div>
+    </div>
+
+    <script>
+        // Conference start date: July 20, 2026 at 00:00:00
+        const conferenceDate = new Date('2026-07-20T00:00:00');
+
+        function updateCountdown() {
+            const now = new Date();
+            const difference = conferenceDate - now;
+
+            if (difference <= 0) {
+                document.getElementById('countdown-message').innerHTML = '🎉 The Conference Has Started! 🎉';
+                document.getElementById('days').textContent = '0';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+            // Update message based on days remaining
+            const messageEl = document.getElementById('countdown-message');
+            if (days === 0) {
+                messageEl.innerHTML = `⏰ Less than 24 hours to go!`;
+            } else if (days === 1) {
+                messageEl.innerHTML = `🚀 Only 1 day to go!`;
+            } else if (days <= 5) {
+                messageEl.innerHTML = `🔥 Only ${days} days to go!`;
+            } else if (days <= 10) {
+                messageEl.innerHTML = `⚡ ${days} days remaining!`;
+            } else {
+                messageEl.innerHTML = `📅 ${days} days to go!`;
+            }
+        }
+
+        // Create stars background
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = Math.random() * 3 + 'px';
+                star.style.height = star.style.width;
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random()  * 100 + '%';
+                star.style.animationDelay = Math.random() * 2 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Initialize
+        createStars();
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
